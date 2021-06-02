@@ -6,7 +6,7 @@ body,p,ul,ol,dl,dd,h1,h2,h3,h4,input,form{margin:0;padding:0;}
 /* 清楚列表默认样式 */
 li{list-style: none;}
 /* 统一界面的字体 */
-body{font:0.14rem/1 'Microsoft yahei';color:#333;}
+body{font:1.14rem/1 'Microsoft yahei';color:#333;}
 /* 字体重置 */ 
 a{text-decoration:none;color:inherit;}
 h1,h2,h3,h4,h5,h6,b,strong{font-weight:normal;font-size:100%;}

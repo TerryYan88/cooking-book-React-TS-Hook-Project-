@@ -1,11 +1,16 @@
-import { TabBar } from 'antd-mobile';
 
+import {Container} from "./StyledCookBook";
+import Swiper from "./Swiper";
+import {Search} from '@/components';
 
-const CookBook = ()=>{
+const CookBook = () => {
+
     return (
-        <div>
-            <h1>Home</h1>
-        </div>
+        <Container>
+            <header>美食大全</header>
+            <Swiper/>
+            <Search/>
+        </Container>
     )
 }
 
