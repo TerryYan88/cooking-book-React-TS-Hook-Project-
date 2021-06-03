@@ -1,12 +1,16 @@
 import {useState,useCallback,useEffect} from "react";
 
 export const useResize = ()=>{
-    const [height,setHeight] = useState({
-        height:document.documentElement.clientHeight
+    const [size,setSize] = useState({
+        height:document.documentElement.clientHeight,
+        width:document.documentElement.clientWidth
     });
     
     const onResize = useCallback(()=>{
-        setHeight({height:document.documentElement.clientHeight})
+        setSize({
+            height:document.documentElement.clientHeight,
+            width:document.documentElement.clientWidth
+        })
     },[])
 
     useEffect(()=>{
@@ -14,5 +18,5 @@ export const useResize = ()=>{
         return ()=>window.removeEventListener("resize",onResize);
     },[onResize])
     
-    return height;
+    return size;
 }
