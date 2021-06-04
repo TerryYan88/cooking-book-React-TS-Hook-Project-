@@ -1,4 +1,4 @@
-const {override,fixBabelImports, addWebpackAlias,addWebpackResolve} = require('customize-cra');
+const {override,fixBabelImports, addWebpackAlias,addWebpackResolve,addDecoratorsLegacy} = require('customize-cra');
 const path = require('path');
 module.exports = override(
     //ui modle config 按需加载
@@ -16,5 +16,7 @@ module.exports = override(
     //config resolve
     addWebpackResolve({
         extensions:[".tsx",".ts",".js"],
-    })
+    }),
+    //decorator for react
+    addDecoratorsLegacy()
 )

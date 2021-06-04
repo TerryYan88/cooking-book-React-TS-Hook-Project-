@@ -1,6 +1,21 @@
 import { TabBar } from 'antd-mobile';
 import {useState} from "react";
-import CookBook from './Cookbook';
+import {CookBook} from './Cookbook/index';
+import {Category} from "./Category";
+
+import cookbook from '@/assets/images/cookbook.png'
+import cookbookActive from '@/assets/images/cookbook-active.png'
+
+import menu from '@/assets/images/menu.png'
+import menuActive from '@/assets/images/menu-active.png'
+
+import location from '@/assets/images/location.png'
+import locationActive from '@/assets/images/location-active.png'
+
+import more from '@/assets/images/more.png'
+import moreActive from '@/assets/images/more-active.png'
+
+
 const Home = () => {
     const [fullScreen,setFullScreen] = useState(true);
     const [hidden,setHidden] = useState(false);
@@ -19,14 +34,14 @@ const Home = () => {
                     icon={<div style={{
                         width: '22px',
                         height: '22px',
-                        background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat'
+                        background: `url(${cookbook}) center center /  26px 26px no-repeat`
                     }}
                     />
                     }
                     selectedIcon={<div style={{
                         width: '22px',
                         height: '22px',
-                        background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat'
+                        background: `url(${cookbookActive}) center center /  26px 26px no-repeat`
                     }}
                     />
                     }
@@ -43,7 +58,7 @@ const Home = () => {
                         <div style={{
                             width: '22px',
                             height: '22px',
-                            background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat'
+                            background: `url(${menu}) center center /  21px 21px no-repeat`
                         }}
                         />
                     }
@@ -51,7 +66,7 @@ const Home = () => {
                         <div style={{
                             width: '22px',
                             height: '22px',
-                            background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat'
+                            background: `url(${menuActive}) center center /  21px 21px no-repeat`
                         }}
                         />
                     }
@@ -63,13 +78,14 @@ const Home = () => {
                     }}
                     data-seed="logId1"
                 >
+                    <Category/>
                 </TabBar.Item>
                 <TabBar.Item
                     icon={
                         <div style={{
                             width: '22px',
                             height: '22px',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat'
+                            background: `url(${location}) center center /  21px 21px no-repeat`
                         }}
                         />
                     }
@@ -77,7 +93,7 @@ const Home = () => {
                         <div style={{
                             width: '22px',
                             height: '22px',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat'
+                            background: `url(${locationActive}) center center /  21px 21px no-repeat`
                         }}
                         />
                     }
@@ -90,8 +106,8 @@ const Home = () => {
                 >
                 </TabBar.Item>
                 <TabBar.Item
-                    icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-                    selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
+                    icon={{ uri: more }}
+                    selectedIcon={{ uri: moreActive }}
                     title="更多"
                     key="more"
                     selected={selectedTab === 'more'}

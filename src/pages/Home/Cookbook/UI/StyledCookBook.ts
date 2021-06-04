@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//hearder container
 const Container = styled.div`
     header{
         height:3.76rem;
@@ -10,7 +11,7 @@ const Container = styled.div`
         background-color:#ff6a00;
     },
 `
-
+//carousel
 const SwiperWrap = styled.div`
     height:0;
     font-size:0;
@@ -20,7 +21,7 @@ const SwiperWrap = styled.div`
         position:static !important;
     }
 `
-
+//category 
 const HotCateWrap = styled.div`  
     h1{
         height:2.5rem;
@@ -57,9 +58,50 @@ const HotCateWrap = styled.div`
     }
 
 `
+//top ten food
+const TopTenWrap = styled.div`
+    h1{
+        height:2.5rem;
+        padding-left:1.1rem;
+        color:#666;
+        line-height:2.5rem;
+        font-weight:normal;
+    }
+    ul{
+        display:flex;
+        width:100%;
+        flex-wrap:wrap;
+        padding-left:.4rem;
+        li{
+            width:50%;
+            padding-right:.4rem;
+            img{
+                width:100%;
+            }
+            > div:last-child{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                flex-direction:column;
+                height:3.6rem;
+                background-color:#fff;
+                margin-buttom:.3rem;
+                > p:first-child{
+                    font-size:1.2rem
+                }
+                > p:last-child{
+                    font-size:.8rem;
+                    color:#666;
+                    margin-top:.2rem;
+                }
+            }
+        } 
+    }
+`
 
 export {
     Container,
     SwiperWrap,
-    HotCateWrap
+    HotCateWrap,
+    TopTenWrap
 }

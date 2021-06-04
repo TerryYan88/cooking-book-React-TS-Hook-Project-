@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
+
 import { Grid } from 'antd-mobile';
 import { v4 as uuidv4 } from "uuid";
-
 import { HotCateWrap } from './StyledCookBook'
 
 interface DefaultState {
@@ -76,6 +76,7 @@ const defaultState: DefaultState[] = [
 
 
 const HotCate = () => {
+  
     const [hotCateList, setHotCateList] = useState(defaultState);
     const [columnNum,setNum] = useState(0);
     const [width] = useState({width:window.innerWidth})
