@@ -1,11 +1,11 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren,memo } from "react";
 
 import { CookBookProps } from "./CookBookUi";
 import { TopTenWrap } from "./StyledCookBook";
 
 
 const TopTen = (props: PropsWithChildren<CookBookProps>) => {
-    console.log(props.list);
+    //console.log(props.list);
     return (
         <TopTenWrap>
             <h1>精品好菜</h1>
@@ -31,4 +31,4 @@ const TopTen = (props: PropsWithChildren<CookBookProps>) => {
     )
 }
 
-export default TopTen;
+export default memo(TopTen);

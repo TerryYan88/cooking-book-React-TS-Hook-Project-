@@ -1,10 +1,2 @@
 
-const More = ()=>{
-    return(
-        <div>
-
-        </div>
-    )
-}
-
-export default More;
+export {default as More } from "./container";

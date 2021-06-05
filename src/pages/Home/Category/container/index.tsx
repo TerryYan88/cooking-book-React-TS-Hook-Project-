@@ -1,34 +1,17 @@
-import {useState} from "react";
+import {useState,useCallback,memo} from "react";
 
-import {Search} from "@/components";
-import {CategoryWrap} from "./StyledCategroy";
+import CategoryUi from "../ui/CategroyUi";
 
 const Category = ()=>{
     const [tabIndex,setTabIndex] = useState(0);
-    const handleClick =(num:number)=>()=>setTabIndex(num);
-    return (
-        <CategoryWrap>
-            <nav>
-                <ul>
-                    <li 
-                        className={tabIndex===0?'active':''}
-                        onClick={handleClick(0)}
-                    >分类</li>
-                    <li
-                        className={tabIndex===1?'active':''}
-                        onClick={handleClick(1)}
-                    >食材</li>
-                    <li className={tabIndex===0?'slide': 'slide right'}></li>
-                </ul>
-            </nav>
-            {/* background-color and radius different */}
-            <Search
-                outerbg="#fff"
-                innerbg="#eee"
-                hasborder={false}
-            />
-        </CategoryWrap>
-    )
+    const [type,setType] = useState("category");
+    const handleClick =useCallback((index:number)=>{
+        setTabIndex(index);
+        index===0?setType("category"):setType("material");
+    },[]);
+  return (
+    <CategoryUi tabIndex={tabIndex} type={type} handleClick={handleClick}/>
+  )
 }
 
-export default Category;
+export default memo(Category);

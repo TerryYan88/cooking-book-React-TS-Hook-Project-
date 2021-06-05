@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const CategoryWrap = styled.div`
+    height:100%;
+    display:flex;
+    flex-direction:column;
     nav{
         height:3.76rem;
         font-size:1.32rem;
@@ -44,6 +47,7 @@ const CategoryWrap = styled.div`
     }
 `
 
+
 export {
-    CategoryWrap,
+    CategoryWrap,  
 }
