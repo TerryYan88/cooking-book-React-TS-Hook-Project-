@@ -1,5 +1,6 @@
 import styled from "styled-components";
-
+import border from "@/assets/style/border";
+import ellipsis from "@/assets/style/ellipsis";
 //hearder container
 const Container = styled.div`
     header{
@@ -21,18 +22,19 @@ const SwiperWrap = styled.div`
         position:static !important;
     }
 `
+//category h1
+const H1Container = border(styled.h1`
+    height:2.5rem;
+    padding-left:1.1rem;
+    color:#666;
+    line-height:2.5rem;
+    font-weight:normal;
+    background-color:#fff;
+`);
+
 //category 
 const HotCateWrap = styled.div`  
-    h1{
-        height:2.5rem;
-        padding-left:1.1rem;
-        color:#666;
-        line-height:2.5rem;
-        font-weight:normal;
-        background-color:#fff;
-        border-bottom:1px solid #ccc;
-    }
-    > div{
+    >div{
         background-color:#fff;
          padding-top:1.0rem;
             .grid-item{
@@ -89,19 +91,24 @@ const TopTenWrap = styled.div`
                 > p:first-child{
                     font-size:1.2rem
                 }
-                > p:last-child{
-                    font-size:.8rem;
-                    color:#666;
-                    margin-top:.2rem;
-                }
             }
         } 
     }
 `
 
+const SubTitle = ellipsis(
+    styled.p`
+    font-size:.9rem;
+    color:#666;
+    margin-top:.2rem;
+`);
+
+
 export {
     Container,
     SwiperWrap,
     HotCateWrap,
-    TopTenWrap
+    TopTenWrap,
+    H1Container,
+    SubTitle
 }

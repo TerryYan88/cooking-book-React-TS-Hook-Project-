@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-
-
-
 const MoreWrap = styled.div`
     padding:1.5rem;
     display:flex;
@@ -12,6 +9,7 @@ const MoreWrap = styled.div`
 const TitleBar = styled.div`
     .am-navbar-dark{
         background-color:#ee742f;
+        height:3.8rem;
     }
 `
 

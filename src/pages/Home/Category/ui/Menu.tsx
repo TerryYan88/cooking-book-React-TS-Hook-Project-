@@ -15,12 +15,13 @@ export interface Cate {
 
 interface MenuProps{
     type:string
+    onGotoList(title:string):void;
 }
 
 const Menu = (props:PropsWithChildren<MenuProps>) => {
     const [cate, setCate] = useState<Cate>();
     const [currentCate,setCurrentCate] = useState<string>("热门");
-    const {type} = props;
+    const {type,onGotoList} = props;
     //ajax async request
     const request = async () => {
         try {
@@ -35,6 +36,9 @@ const Menu = (props:PropsWithChildren<MenuProps>) => {
     // console.log(cate&&cate![type]);
     const handleAsideClick = (item: string)=>setCurrentCate(item)
     
+
+
+
     // console.log(cate);
     useEffect(() => {
         request();
@@ -48,6 +52,7 @@ const Menu = (props:PropsWithChildren<MenuProps>) => {
         cateContentArrays={cate&&cate[type][currentCate]}
         handleAsideClick={handleAsideClick}
         type={type}
+        onGotoList={(title:string)=>onGotoList(title)}
        />
     )
 }

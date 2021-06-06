@@ -1,7 +1,10 @@
 import { PropsWithChildren,memo } from "react";
 
 import { CookBookProps } from "./CookBookUi";
-import { TopTenWrap } from "./StyledCookBook";
+import { 
+    TopTenWrap,
+    SubTitle 
+} from "./StyledCookBook";
 
 
 const TopTen = (props: PropsWithChildren<CookBookProps>) => {
@@ -20,7 +23,9 @@ const TopTen = (props: PropsWithChildren<CookBookProps>) => {
                                 </div>
                                 <div>
                                     <p>西芹泡椒爆鱿鱼</p>
-                                    <p><span>{item.all_click}</span>浏览<span>{item.favorites}</span>收藏</p>
+                                    <SubTitle
+                                        line={1}
+                                    ><span>{item.all_click}</span>浏览<span>{item.favorites}</span>收藏</SubTitle>
                                 </div>
                             </li>
                         )

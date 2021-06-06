@@ -31,6 +31,8 @@ const CookBookUi = (props:PropsWithChildren<CookBookProps>)=>{
                 outerbg="#f5f5f9"
                 innerbg="#fff"
                 hasborder={true}
+                radius={0.48}
+                color="#ee742f"
             />
             <HotCate/>
             <TopTen list={hostCate(props.list)}/>

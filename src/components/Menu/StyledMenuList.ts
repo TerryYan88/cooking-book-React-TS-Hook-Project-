@@ -1,4 +1,5 @@
-import styled  from "styled-components"
+import styled from "styled-components";
+import border from "@/assets/style/border";
 const MenuWrap = styled.div`
 flex:1;
 display:flex;
@@ -35,13 +36,12 @@ section{
         flex-wrap:wrap;
         li{
             width:33.333333%;
-            height:2.25rem;
+            height:3.75rem;
             text-align:center;
+            font-size:.9rem;
         }
     }
 }
 `
 
-export {
-    MenuWrap
-}
+export default border(MenuWrap)

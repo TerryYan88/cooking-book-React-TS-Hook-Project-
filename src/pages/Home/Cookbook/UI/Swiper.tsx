@@ -6,7 +6,6 @@ import {SwiperWrap} from "./StyledCookBook";
 
 
 const Swiper = (props:PropsWithChildren<CookBookProps>) => {
-
     return (
         <SwiperWrap>
             <Carousel

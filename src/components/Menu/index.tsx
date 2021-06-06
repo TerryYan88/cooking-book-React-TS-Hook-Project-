@@ -1,7 +1,8 @@
 import {PropsWithChildren,memo} from "react";
 
-import {Cate} from "@/pages/Home/Category/container/Menu"
-import { MenuWrap } from "./StyledMenuList";
+
+import {Cate} from "@/pages/Home/Category/ui/Menu"
+import MenuWrap from "./StyledMenuList";
 
 interface MenuListProps{
     cate:Cate;
@@ -9,13 +10,16 @@ interface MenuListProps{
     currentCate:string;
     handleAsideClick(item:string):void;
     type:string;
+    onGotoList(title:string):void;
 }
 
 const MenuList = (props:PropsWithChildren<MenuListProps>) => {
-    const {cate,currentCate,handleAsideClick,cateContentArrays} = props
-    //console.log(cateArrays&&cateArrays)
+    const {cate,currentCate,handleAsideClick,cateContentArrays,onGotoList} = props
+
     return (
-        <MenuWrap>
+        <MenuWrap
+            width="1px 0 0 0"
+        >
             <aside>
                 <ul>
                     {
@@ -38,7 +42,10 @@ const MenuList = (props:PropsWithChildren<MenuListProps>) => {
                     {
                         cateContentArrays&&cateContentArrays.map((item,index)=>{
                            return (
-                               <li key={index}>{item}</li>
+                               <li
+                                key={index}
+                                onClick={()=>onGotoList(item)}
+                               >{item}</li>
                            )
                        })
                     }

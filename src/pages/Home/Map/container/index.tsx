@@ -1,28 +1,23 @@
-import { NavBar } from "antd-mobile";
-import { 
-    GoogleMap,
-    useLoadScript,
-    Marker,
-    InfoWindow
-} from "@react-google-maps/api";
 
-import formatRelative from "data-fns";
-
-import {TitleBar} from "./StyledMap";
+import {
+  NavBar
+} from 'antd-mobile'
 
 
-const Map = ()=>{
-    
-
-    return (
-        <div>
-             <TitleBar>
-                    <NavBar
-                        mode="dark"
-                    >美食地图</NavBar>
-            </TitleBar>
-        </div>
-    )
+export default function Map() {
+  return (
+    <div style={{width: '100%', height: '100%'}}>
+      <NavBar
+        mode="dark"
+        style={{backgroundColor: '#ee742f'}}
+      >
+        美食地图
+      </NavBar>
+      <iframe 
+        style={{width: '100%', height: '100%'}}
+        src="/map.html" 
+        title="ifrm" 
+        frameBorder="0"></iframe>
+    </div>
+  )
 }
-
-export default Map;
