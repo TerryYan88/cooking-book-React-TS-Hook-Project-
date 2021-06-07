@@ -15,7 +15,7 @@ interface MenuListProps{
 
 const MenuList = (props:PropsWithChildren<MenuListProps>) => {
     const {cate,currentCate,handleAsideClick,cateContentArrays,onGotoList} = props
-
+  
     return (
         <MenuWrap
             width="1px 0 0 0"

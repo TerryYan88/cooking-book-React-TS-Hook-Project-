@@ -5,6 +5,7 @@ import ellipsis from "@/assets/style/ellipsis";
 const ListContainer = styled.div`
     display:flex;
     flex-direction:column;
+    height:100%;
     ul{
         flex:1;
         overflow-y:scroll;

@@ -34,6 +34,7 @@ const HotCate = () => {
     const handleClick = (title:string)=>{
         push("/list",{
             title,
+            from:"/home",
         })
     }
     return (

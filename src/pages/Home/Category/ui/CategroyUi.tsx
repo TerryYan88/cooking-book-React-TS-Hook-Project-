@@ -11,13 +11,12 @@ import {
 
 
 interface CategoryUiProps{
-    tabIndex:number;
-    handleClick(index:number):void;
+    handleClick(type:string):void;
     type:string;
 }
 
 const CategoryUi = (props:PropsWithChildren<CategoryUiProps>)=>{
-    const {tabIndex,handleClick,type} = props;
+    const {handleClick,type} = props;
     const {push} = useHistory();
     //menu title transfer to list page;
     const onGotoList =(title:string)=>{
@@ -33,14 +32,14 @@ const CategoryUi = (props:PropsWithChildren<CategoryUiProps>)=>{
                     radius={1.5}
                 >
                     <li 
-                        className={tabIndex===0?'active':''}
-                        onClick={()=>handleClick(0)}
+                        className={type==="category"?'active':''}
+                        onClick={()=>handleClick("category")}
                     >分类</li>
                     <li
-                        className={tabIndex===1?'active':''}
-                        onClick={()=>handleClick(1)}
+                        className={type==="material"?'active':''}
+                        onClick={()=>handleClick("material")}
                     >食材</li>
-                    <li className={tabIndex===0?'slide': 'slide right'}></li>
+                    <li className={type==="category"?'slide': 'slide right'}></li>
                 </NavUl>
             </nav>
             {/* background-color and radius different */}

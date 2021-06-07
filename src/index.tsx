@@ -4,8 +4,7 @@ import {store} from "@/redux/rootStore";
 import App from './App';
 import { BrowserRouter as Router } from "react-router-dom";
 import "@/assets/style/public.css";
-import "@/assets/style/animate.css";
-
+import "animate.css";
 
 render(
   <Router>

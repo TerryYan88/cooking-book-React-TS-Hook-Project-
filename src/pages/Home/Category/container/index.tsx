@@ -1,20 +1,23 @@
-import {useState,useCallback,memo} from "react";
+import {useCallback,memo} from "react";
 
+import {useSelector,useDispatch} from "react-redux";
+import {ActionsCate} from "@/redux/Category/models/actions-type";
+import {AppState} from "@/redux/rootStore";
 import CategoryUi from "../ui/CategroyUi";
 
 const Category = ()=>{
-    const [tabIndex,setTabIndex] = useState(0);
-    const [type,setType] = useState("category");
+    const cateType = useSelector((state:AppState)=>state.cateReducer.routeInfo.cateType);
 
-    const handleClick =useCallback((index:number)=>{
-        setTabIndex(index);
-        index===0?setType("category"):setType("material");
+    const dispatch = useDispatch();
+    const changeCateType =(cateType:string)=> dispatch({type:ActionsCate.CATE_TYPE,cateType});
+    const handleClick =useCallback((cateType:string)=>{
+        changeCateType(cateType);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
-
+    
   return (
     <CategoryUi 
-      tabIndex={tabIndex} 
-      type={type} 
+      type={cateType} 
       handleClick={handleClick} 
     />
   )

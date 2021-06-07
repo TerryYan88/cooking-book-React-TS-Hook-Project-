@@ -1,5 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState,PropsWithChildren,memo } from "react";
+import {useSelector,useDispatch} from "react-redux";
 
+import {ActionsCate} from "@/redux/Category/models/actions-type";
+import {AppState} from "@/redux/rootStore";
 import {MenuList} from "@/components";
 import { get } from "@/utils/http";
 
@@ -14,14 +18,14 @@ export interface Cate {
 }
 
 interface MenuProps{
-    type:string
     onGotoList(title:string):void;
+    type:string;
 }
 
 const Menu = (props:PropsWithChildren<MenuProps>) => {
     const [cate, setCate] = useState<Cate>();
-    const [currentCate,setCurrentCate] = useState<string>("热门");
-    const {type,onGotoList} = props;
+    
+    const {onGotoList} = props;
     //ajax async request
     const request = async () => {
         try {
@@ -33,25 +37,29 @@ const Menu = (props:PropsWithChildren<MenuProps>) => {
 
         }
     }
+
+    const cateAside = useSelector((state: AppState)=>state.cateReducer.routeInfo.cateAside);
+    const dispatch = useDispatch();
+    const changeCateAside = (cateAside:string)=>dispatch({type:ActionsCate.CATE_ASIDE,cateAside})
+    const cateType = useSelector((state:AppState)=>state.cateReducer.routeInfo.cateType);
+
     // console.log(cate&&cate![type]);
-    const handleAsideClick = (item: string)=>setCurrentCate(item)
-    
+    const handleAsideClick = (item: string)=>{
+        changeCateAside(item)
+    }
 
-
-
-    // console.log(cate);
     useEffect(() => {
         request();
-        type === "category"? setCurrentCate("热门"):setCurrentCate("肉类")
-    }, [type])
-  
+         changeCateAside(cateType=== "category"?"热门":"肉类");
+    }, [cateType])
+
     return (
        <MenuList 
-        cate={cate&&cate![type]} 
-        currentCate={currentCate} 
-        cateContentArrays={cate&&cate[type][currentCate]}
+        cate={cate&&cate![cateType]} 
+        currentCate={cateAside} 
+        cateContentArrays={cate&&cate[cateType][cateAside]}
         handleAsideClick={handleAsideClick}
-        type={type}
+        type={cateType}
         onGotoList={(title:string)=>onGotoList(title)}
        />
     )
