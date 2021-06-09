@@ -1,15 +1,15 @@
 import {CookBookActions} from "./model/action-types";
 import {ListAsyncActions} from "./model/action-types";
 import {List} from "./model/cookbook";
-interface LisState{
+interface ListState{
     list:List[]
 }
 
-const defaultState:LisState = {
+const defaultState:ListState = {
     list:[]
 }
 
-export const cookbookReducer = (state=defaultState,action:ListAsyncActions):LisState=>{
+export const cookbookReducer = (state=defaultState,action:ListAsyncActions):ListState=>{
     switch(action.type){
         case CookBookActions.LOAD_DATA:
             return {

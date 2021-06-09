@@ -150,3 +150,4 @@ const Home = () => {
 }
 
 export default useAnimate(Home);
+

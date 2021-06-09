@@ -1,42 +1,18 @@
-import { useEffect, useState } from "react";
-import {useHistory} from "react-router-dom";
 
-import {get} from "@/utils/http";
+import {useHotCate} from "@/hooks/useHotCate";
+
 import {H1Container} from "./StyledCookBook";
 import { Grid } from 'antd-mobile';
 import { HotCateWrap } from './StyledCookBook'
 
-interface DefaultState {
-    id: string;
-    title: string;
-    img: string;
-}
+
 
 
 
 
 
 const HotCate = () => {
-    const {push}= useHistory();
-    const [hotCateList,setHotCateList] = useState<DefaultState[]>([]);
-    const requestHotCateList = async()=>{
-        try{
-            const result:any = await get({
-                url:"/api/hotcat"
-            })
-            setHotCateList(result.data);
-        }catch(err){}
-    }
-    useEffect(()=>{
-        requestHotCateList()
-    },[])
-
-    const handleClick = (title:string)=>{
-        push("/list",{
-            title,
-            from:"/home",
-        })
-    }
+    const {hotCateList,handleClick} = useHotCate();
     return (
         <HotCateWrap>
             <H1Container
